@@ -1,0 +1,43 @@
+t1:"Ciao io sono thread1"
+1000
+t2:"Ciao io invece sono thread2"
+1000
+t1:"come stai?"
+1000
+t2:"molto bene grazie, tu?"
+1000
+t1:"bene, mi fa molta paura la storia del virus"
+1000
+t2:"a me no, secondo me è tutto un esagerazione"
+1000
+t1:"no ma come, sei matto? è un discorso molto grave, io non esco di casa da giorni"
+1000
+t2:"sei il solito esagerato, io sono fuori perfino ora"
+1000
+t1:"ti ammalerai, e poi dirai che avevo ragione"
+1000
+t2:"sono solo sciocchezze, fidati i giovani non si ammalano"
+1000
+t1:"ma cosa dici, al telegiornale hanno detto che tutti possono ammalarsi"
+1000
+t2:"ma al telegiornale esagerano sempre si sa"
+1000
+t1:"potrà anche essere ma io sono molto spaventato"
+1000
+t2:"vabbè vedrai che ti passerà"
+1000
+t1:"se lo dici tu, a proposito come sta andando la scuola"
+1000
+t2:"bene dai, stiamo facendo le videolezioni"
+1000
+t1:"che noia, sono davvero brutte"
+1000
+t2:"preferivi andare a scuola? a me non dispiacciono"
+1000
+t1:"si io preferivo andare a scuola, è di gran lunga più educativo"
+1000
+t2:"sei il solito secchione, io me ne sto a casa a giocare alla play"
+1000
+t1:"va beh sei il solito, ora vado che mi chiamano, ciao thread2"
+1000
+t2:"ciao"
