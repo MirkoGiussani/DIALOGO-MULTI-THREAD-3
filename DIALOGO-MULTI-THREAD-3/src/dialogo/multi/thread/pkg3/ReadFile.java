@@ -24,21 +24,21 @@ public class ReadFile {
         }
     }
     
-    public void leggi() throws IOException{
+    
+    public String leggiDialogo() throws IOException{
         String str = br.readLine();
-        String taglio = str.substring(0, 2);
-        String prova = str.substring(4,8);
-        System.out.println("prova = " + prova);
-        if(prova == "Ciao"){
-            System.out.println("prova");
-        }else{
-            System.out.println("prova è diversa da ciao");
+        String nome = str.substring(0, 2);
+        String frase = str.substring(str.indexOf('"')+1, str.length()-1);
+        return (frase + "^" + nome); 
+    }
+    
+    public int leggiPausa() throws IOException{
+        String str = br.readLine();
+        String nome = str.substring(0, 2);
+        int pausa = 0;
+        if((nome.equals("t1") != true) && (nome.equals("t2") != true)){     //se non è uguale a t1 e t2
+            pausa = Integer.parseInt(str);
         }
-        System.out.println("taglio = " + taglio);
-        if (taglio == "t1"){
-            System.out.println("taglio è t1");
-        }else {
-            System.out.println("taglio è diverso da t1"); 
-        }
+        return pausa;
     }
 }

@@ -41,3 +41,4 @@ t2:"sei il solito secchione, io me ne sto a casa a giocare alla play"
 t1:"va beh sei il solito, ora vado che mi chiamano, ciao thread2"
 1000
 t2:"ciao"
+1000

@@ -15,6 +15,8 @@ public class DIALOGOMULTITHREAD3 {
     public static void main(String[] args) throws IOException {
         Thread T1 = new Thread(new T('a'));
         T1.start();
+        Thread T2 = new Thread(new T('b'));
+        T2.start();
     }
     
 }
