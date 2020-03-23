@@ -14,31 +14,35 @@ public class ReadFile {
     
     FileReader fr;
     BufferedReader br;
+    String str = "";
     
-    ReadFile(){
+    ReadFile() throws IOException{
         try {
             fr = new FileReader("file.txt");
             br = new BufferedReader(fr);
-        } catch (FileNotFoundException e) {
+            incrementaDialogo();
+        } catch (FileNotFoundException ex) {
             System.out.println("File non trovato!");
         }
     }
     
     
     public synchronized String leggiDialogo() throws IOException{
-        String str = br.readLine();
         String nome = str.substring(0, 2);
         String frase = str.substring(str.indexOf('"')+1, str.length()-1);
         return (frase + "^" + nome); 
     }
     
+    public void incrementaDialogo() throws IOException{
+        str = br.readLine();
+    }
+        
+    
     public synchronized int leggiPausa() throws IOException{
-        String str = br.readLine();
         String nome = str.substring(0, 2);
-        int pausa = 0;
         if((nome.equals("t1") != true) && (nome.equals("t2") != true)){     //se non è uguale a t1 e t2
-            pausa = Integer.parseInt(str);
+            return Integer.parseInt(str);
         }
-        return pausa;
+        return 0;
     }
 }

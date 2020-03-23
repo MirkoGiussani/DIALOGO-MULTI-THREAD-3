@@ -14,9 +14,10 @@ public class DIALOGOMULTITHREAD3 {
      */
     public static void main(String[] args) throws IOException {
         ReadFile r = new ReadFile();
+        
         Thread T1 = new Thread(new T('a', r));
-        Thread T2 = new Thread(new T('b', r));
         T1.start();
+        Thread T2 = new Thread(new T('b', r));
         T2.start();
     }
     

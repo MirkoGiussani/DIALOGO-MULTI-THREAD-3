@@ -20,46 +20,46 @@ public class T implements Runnable {        //cambiare nome
 
     private char nome;  //il nome o è a oppure b
     ReadFile r = new ReadFile();
-    
+
     T(char nome, ReadFile r) throws IOException {
         this.nome = nome;
         this.r = r;
     }
-    
+
     public String getDialogoT(String d) {
         String str = d;
         String dialogo = str.substring(0, str.indexOf("^"));
         return dialogo;
     }
-    
+
     public String getNomeD(String d) {
         String str = d;
         String dialogo = str.substring(str.indexOf("^") + 1);
         return dialogo;
     }
-    
-    public char getNome(){
+
+    public char getNome() {
         return nome;
     }
-    
+
     public void esecuzione() throws IOException, InterruptedException {    //va aggiunta una gestione dell'eccezioni
-        for (int i = 0; i < 21; i++) {  //44 numero righe del file ma dato che va già a capo con readLine allora 44/2 = 22
+        for (int i = 0; i < 11; i++) {  //44 numero righe del file ma dato che va già a capo con readLine allora 44/2 = 22
             String dialogo = r.leggiDialogo();
             int pausa = r.leggiPausa();
-            if (getNomeD(dialogo).equals("t1")) {
-                if(getNome()=='a'){
-                    System.out.println("A: " + getDialogoT(dialogo));
-                }
-            } else if(getNomeD(dialogo).equals("t2")){
-               if(getNome()=='b'){
-                    System.out.println("B: " + getDialogoT(dialogo));
-                }
+            System.out.println("getNomeD = " + getNomeD(dialogo) + " getNome = " + getNome());
+            if (getNomeD(dialogo).equals("t1") && (getNome() == 'a')) {
+                System.out.println("A: " + getDialogoT(dialogo));
+                r.incrementaDialogo();
+            } else if (getNomeD(dialogo).equals("t2") && ((getNome() == 'b'))) {
+
+                System.out.println("B: " + getDialogoT(dialogo));
+                r.incrementaDialogo();
             }
-            
+            System.out.println(getNome() + pausa);
             Thread.sleep(pausa);
         }
     }
-    
+
     @Override
     public void run() {
         try {
