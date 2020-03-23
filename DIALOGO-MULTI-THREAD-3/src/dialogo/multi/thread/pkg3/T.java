@@ -19,11 +19,11 @@ import java.util.logging.Logger;
 public class T implements Runnable {        //cambiare nome
 
     private char nome;  //il nome o è a oppure b
-    FileReader fr;
-    BufferedReader br;
+    ReadFile r = new ReadFile();
     
-    T(char nome) throws IOException {
+    T(char nome, ReadFile r) throws IOException {
         this.nome = nome;
+        this.r = r;
     }
     
     public String getDialogoT(String d) {
@@ -43,8 +43,7 @@ public class T implements Runnable {        //cambiare nome
     }
     
     public void esecuzione() throws IOException, InterruptedException {    //va aggiunta una gestione dell'eccezioni
-        ReadFile r = new ReadFile();
-        for (int i = 0; i < 22; i++) {  //44 numero righe del file ma dato che va già a capo con readLine allora 44/2 = 22
+        for (int i = 0; i < 21; i++) {  //44 numero righe del file ma dato che va già a capo con readLine allora 44/2 = 22
             String dialogo = r.leggiDialogo();
             int pausa = r.leggiPausa();
             if (getNomeD(dialogo).equals("t1")) {
