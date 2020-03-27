@@ -43,20 +43,25 @@ public class T implements Runnable {        //cambiare nome
     }
 
     public void esecuzione() throws IOException, InterruptedException {    //va aggiunta una gestione dell'eccezioni
-        for (int i = 0; i < 11; i++) {  //44 numero righe del file ma dato che va già a capo con readLine allora 44/2 = 22
+        for (int i = 0; i <= 21; i++) {
             String dialogo = r.leggiDialogo();
             int pausa = r.leggiPausa();
-            System.out.println("getNomeD = " + getNomeD(dialogo) + " getNome = " + getNome());
+
             if (getNomeD(dialogo).equals("t1") && (getNome() == 'a')) {
                 System.out.println("A: " + getDialogoT(dialogo));
-                r.incrementaDialogo();
-            } else if (getNomeD(dialogo).equals("t2") && ((getNome() == 'b'))) {
+                Thread.sleep(pausa / 2);             //????????????????????????????????????
+                r.incrementa();
+                Thread.sleep(pausa / 2);
 
+            } else if (getNomeD(dialogo).equals("t2") && ((getNome() == 'b'))) {
                 System.out.println("B: " + getDialogoT(dialogo));
-                r.incrementaDialogo();
+                Thread.sleep(pausa / 2);
+                r.incrementa();
+                Thread.sleep(pausa / 2);
+            } else {
+                Thread.sleep(pausa + 50);   //+50 ????????????????????????????????????
             }
-            System.out.println(getNome() + pausa);
-            Thread.sleep(pausa);
+
         }
     }
 

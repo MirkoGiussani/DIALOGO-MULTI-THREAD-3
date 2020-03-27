@@ -14,13 +14,14 @@ public class ReadFile {
     
     FileReader fr;
     BufferedReader br;
-    String str = "";
+    String strDialogo = "";
+    String strPausa = "";
     
     ReadFile() throws IOException{
         try {
             fr = new FileReader("file.txt");
             br = new BufferedReader(fr);
-            incrementaDialogo();
+            incrementa();
         } catch (FileNotFoundException ex) {
             System.out.println("File non trovato!");
         }
@@ -28,20 +29,22 @@ public class ReadFile {
     
     
     public synchronized String leggiDialogo() throws IOException{
-        String nome = str.substring(0, 2);
-        String frase = str.substring(str.indexOf('"')+1, str.length()-1);
-        return (frase + "^" + nome); 
+        
+        String nome = strDialogo.substring(0, 2);
+        String frase = strDialogo.substring(strDialogo.indexOf('"')+1, strDialogo.length()-1);
+        return (frase + "^" + nome);
     }
     
-    public void incrementaDialogo() throws IOException{
-        str = br.readLine();
+    public void incrementa() throws IOException{
+        strDialogo = br.readLine();
+        strPausa = br.readLine();
     }
         
     
     public synchronized int leggiPausa() throws IOException{
-        String nome = str.substring(0, 2);
+        String nome = strPausa.substring(0, 2);
         if((nome.equals("t1") != true) && (nome.equals("t2") != true)){     //se non è uguale a t1 e t2
-            return Integer.parseInt(str);
+            return Integer.parseInt(strPausa);
         }
         return 0;
     }
