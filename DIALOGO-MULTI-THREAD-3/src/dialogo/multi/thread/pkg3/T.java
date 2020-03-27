@@ -42,24 +42,22 @@ public class T implements Runnable {        //cambiare nome
         return nome;
     }
 
-    public void esecuzione() throws IOException, InterruptedException {    //va aggiunta una gestione dell'eccezioni
+    public void esecuzione() throws IOException, InterruptedException {  
         for (int i = 0; i <= 21; i++) {
             String dialogo = r.leggiDialogo();
             int pausa = r.leggiPausa();
 
             if (getNomeD(dialogo).equals("t1") && (getNome() == 'a')) {
                 System.out.println("A: " + getDialogoT(dialogo));
-                Thread.sleep(pausa / 2);             //????????????????????????????????????
+                Thread.sleep(pausa);            
                 r.incrementa();
-                Thread.sleep(pausa / 2);
 
             } else if (getNomeD(dialogo).equals("t2") && ((getNome() == 'b'))) {
                 System.out.println("B: " + getDialogoT(dialogo));
-                Thread.sleep(pausa / 2);
+                Thread.sleep(pausa);
                 r.incrementa();
-                Thread.sleep(pausa / 2);
             } else {
-                Thread.sleep(pausa + 50);   //+50 ????????????????????????????????????
+                Thread.sleep(pausa);   
             }
 
         }
