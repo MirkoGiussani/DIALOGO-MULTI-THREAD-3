@@ -19,11 +19,13 @@ import java.util.logging.Logger;
 public class T implements Runnable {        //cambiare nome
 
     private char nome;  //il nome o è a oppure b
-    ReadFile r = new ReadFile();
+    private ReadFile r;
+    private int linee;
 
     T(char nome, ReadFile r) throws IOException {
         this.nome = nome;
         this.r = r;
+        this.linee = r.getLinea() /2;
     }
 
     public String getDialogoT(String d) {
@@ -43,19 +45,21 @@ public class T implements Runnable {        //cambiare nome
     }
 
     public void esecuzione() throws IOException, InterruptedException {  
-        for (int i = 0; i <= 21; i++) {
+        for (int i = 0; i < linee; i++) {  //errore qua
             String dialogo = r.leggiDialogo();
             int pausa = r.leggiPausa();
 
             if (getNomeD(dialogo).equals("t1") && (getNome() == 'a')) {
                 System.out.println("A: " + getDialogoT(dialogo));
-                Thread.sleep(pausa);            
+                Thread.sleep(pausa/2);            
                 r.incrementa();
+                Thread.sleep(pausa/2);  
 
             } else if (getNomeD(dialogo).equals("t2") && ((getNome() == 'b'))) {
                 System.out.println("B: " + getDialogoT(dialogo));
-                Thread.sleep(pausa);
+                Thread.sleep(pausa/2);  
                 r.incrementa();
+                Thread.sleep(pausa/2);  
             } else {
                 Thread.sleep(pausa);   
             }

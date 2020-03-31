@@ -13,7 +13,7 @@ public class DIALOGOMULTITHREAD3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        ReadFile r = new ReadFile();
+        ReadFile r = new ReadFile("file.txt");
         
         Thread T1 = new Thread(new T('a', r));
         T1.start();

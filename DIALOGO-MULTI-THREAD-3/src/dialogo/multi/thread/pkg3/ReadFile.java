@@ -12,21 +12,44 @@ import java.io.IOException;
  */
 public class ReadFile {
     
-    FileReader fr;
-    BufferedReader br;
-    String strDialogo = "";
-    String strPausa = "";
+    //FileReader fr;
+    private BufferedReader br;
+    private String strDialogo = "";
+    private String strPausa = "";
+    private int line;
     
-    ReadFile() throws IOException{
+    ReadFile(String fileNome) throws IOException{
         try {
-            fr = new FileReader("file.txt");
-            br = new BufferedReader(fr);
+            br = new BufferedReader(new FileReader(fileNome));
+            line = contatoreLinee();
+            br.close();
+            br = new BufferedReader(new FileReader(fileNome));
             incrementa();
+            //contatoreLinee();
         } catch (FileNotFoundException ex) {
             System.out.println("File non trovato!");
         }
     }
     
+    public int contatoreLinee(){
+        String s;
+        int i = 1;
+        try{
+            s = br.readLine();
+            while(s != null){
+                s = br.readLine();
+                i++;
+            }
+        } catch (IOException ex){
+            System.out.println("IOExc in contatore linee");
+        }
+        System.out.println("Linea contatore catch " + i);
+        return i-1;
+    }
+    
+    public int getLinea(){
+        return this.line;
+    }
     
     public synchronized String leggiDialogo() throws IOException{
         
